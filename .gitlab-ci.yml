@@ -14,8 +14,7 @@ stages:
 pylint:
   stage: Static Analysis
   script:
-  - pylint -d C0301 src/backend/*.py --disable = import-error, invalid-name, missing-module-docstring, missing-function-docstring, consider-using-enumerate, no-else-return, unused-import
-
+  - pylint -d C0301 F0001 F0001 C0103 C0116 C0200 R1705 W0611 src/backend/*.py
 pytest:
   stage: Test
   script:
