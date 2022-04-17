@@ -14,7 +14,7 @@ stages:
 pylint:
   stage: Static Analysis
   script:
-  - pylint -d C0301, F0001, C0103, C0116, C0200, R1705, W0611 src/backend/*.py
+  - pylint -d C0301, F0001, C0103, C0116, C0200, R1705, W0611 src/*.py
 pytest:
   stage: Test
   script:

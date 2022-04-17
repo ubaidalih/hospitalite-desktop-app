@@ -2,7 +2,16 @@
 
 import psycopg2 as pg
 
-def register(registerInfo, isDokter, conn, com):
+def register(registerInfo, isDokter):
+    conn = pg.connect(
+        user = "vyojenvrexevcy",
+        password = "78260dce308329a44a00d836c4cda566c328fdcb753a1c3996b5c1bb3d35ede2",
+        host = "ec2-3-230-122-20.compute-1.amazonaws.com",
+        port = "5432",
+        database = "d1lsdor9ucq2mi"
+    )
+    com = conn.cursor()
+
     if isDokter:
         com.execute("SELECT * FROM dokter")
         listAkun = com.fetchall()
