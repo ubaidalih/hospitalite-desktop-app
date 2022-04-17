@@ -33,5 +33,6 @@ def register(registerInfo, isDokter):
     else:
         com.execute("INSERT INTO pasien VALUES ({}, '{}', '{}' ,'{}' ,'{}')".format(idAkun, registerInfo[0], registerInfo[1], registerInfo[2], registerInfo[3]))
     conn.commit()
+    conn.close()
     print("Data berhasil ditambahkan")
     return True

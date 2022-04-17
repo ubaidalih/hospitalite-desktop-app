@@ -11,11 +11,11 @@ from register import register as reg
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class RegisterPage(QtWidgets.QMainWindow):
-    def __init__(self, window,isDoctor=True, parent=None):
+    def __init__(self, window, isDoctor, parent=None):
         super(RegisterPage, self).__init__(parent)
         self.MainWindow = window
-        self.isDoctor = isDoctor
         self.Parent = parent
+        self.isDoctor = isDoctor
 
     def toLoginPage(self):
         self.Parent.setupUi(self.MainWindow)
@@ -34,9 +34,9 @@ class RegisterPage(QtWidgets.QMainWindow):
             self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Register Successful</span></p></body></html>"))
         else:
             if not re.match("""/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/""", self.textEdit_16.toPlainText()):
-                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Email Invalid</span></p></body></html>"))
+                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;color:red;\">Email Invalid</span></p></body></html>"))
             else:
-                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Username or Paswword Already Exist</span></p></body></html>"))
+                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;color:red;\">Username or Password already exist</span></p></body></html>"))
 
 
     def setupUi(self, MainWindow):
