@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+import re
 from register import register as reg
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -22,14 +23,20 @@ class RegisterPage(QtWidgets.QMainWindow):
 
     def register(self):
         registerInfo = [self.textEdit_13.toPlainText(), self.textEdit_16.toPlainText(), self.textEdit_18.toPlainText(), self.textEdit_15.toPlainText()]
-        self.changeState(reg(registerInfo, self.isDoctor))
+        if not re.match("""/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/""", self.textEdit_16.toPlainText()):
+            self.changeState(False)
+        else:
+            self.changeState(reg(registerInfo, self.isDoctor))
 
     def changeState(self, state):
         _translate = QtCore.QCoreApplication.translate
         if state:
-                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Register Successful</span></p></body></html>"))
+            self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Register Successful</span></p></body></html>"))
         else:
-                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Register Failed</span></p></body></html>"))
+            if not re.match("""/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/""", self.textEdit_16.toPlainText()):
+                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Email Invalid</span></p></body></html>"))
+            else:
+                self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Username or Paswword Already Exist</span></p></body></html>"))
 
 
     def setupUi(self, MainWindow):
