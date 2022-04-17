@@ -1,3 +1,5 @@
+"""function for register"""
+
 import psycopg2 as pg
 
 def register(registerInfo, isDokter, conn, com):
