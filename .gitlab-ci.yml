@@ -14,7 +14,7 @@ stages:
 pylint:
   stage: Static Analysis
   script:
-  - pylint -d C0301 src/backend/*.py
+  - pylint -d C0301 src/backend/*.py --disable = line-too-long, too-many-lines, no-name-in-module, import-error, multiple-imports, pointless-string-statement, wrong-import-order
 
 pytest:
   stage: Test
