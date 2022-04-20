@@ -4,7 +4,7 @@ sys.path.append(os.path.join(sys.path[0], "../src/backend"))
 from register import register
 
 def test_register_dokter():
-    registerInfo = ["Patrick Amadeus", "patrick@example.com", "patrick", "12345678"]
+    registerInfo = ["Patrick Amadeus", "patrick@example.com", "patrick123", "12345678"]
     status = register(registerInfo, True)
     conn = pg.connect(
         user = "vyojenvrexevcy",
@@ -14,7 +14,7 @@ def test_register_dokter():
         database = "d1lsdor9ucq2mi"
     )
     com = conn.cursor()
-    com.execute("DELETE FROM dokter WHERE username = 'patrick'")
+    com.execute("DELETE FROM dokter WHERE username = 'patrick123'")
     conn.commit()
     conn.close()
     assert status == True

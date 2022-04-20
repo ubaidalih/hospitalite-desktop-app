@@ -24,8 +24,8 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.MainWindow.show()
 
     def register(self):
-        registerInfo = [self.textEdit_13.toPlainText(), self.textEdit_16.toPlainText(), self.textEdit_18.toPlainText(), self.textEdit_15.toPlainText()]
-        if not re.match("""^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$""", self.textEdit_16.toPlainText()):
+        registerInfo = [self.textEdit_13.text(), self.textEdit_16.text(), self.textEdit_18.text(), self.textEdit_15.text()]
+        if not re.match("""^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$""", self.textEdit_16.text()):
             self.changeState(False)
         else:
             self.changeState(reg(registerInfo, self.isDoctor))
@@ -35,7 +35,7 @@ class RegisterPage(QtWidgets.QMainWindow):
         if state:
             self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Register Successful</span></p></body></html>"))
         else:
-            if not re.match("""^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$""", self.textEdit_16.toPlainText()):
+            if not re.match("""^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$""", self.textEdit_16.text()):
                 self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;color:red;\">Email Invalid</span></p></body></html>"))
             else:
                 self.label_1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;color:red;\">Username or Email already exist</span></p></body></html>"))
@@ -141,7 +141,7 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem9)
-        self.textEdit_13 = QtWidgets.QTextEdit(self.verticalLayoutWidget_4)
+        self.textEdit_13 = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
         self.textEdit_13.setMinimumSize(QtCore.QSize(300, 40))
         self.textEdit_13.setMaximumSize(QtCore.QSize(300, 30))
         self.textEdit_13.setStyleSheet("background-color: #F8F9FD;\n"
@@ -168,7 +168,7 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_7.addItem(spacerItem12)
-        self.textEdit_16 = QtWidgets.QTextEdit(self.verticalLayoutWidget_4)
+        self.textEdit_16 = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
         self.textEdit_16.setMinimumSize(QtCore.QSize(300, 40))
         self.textEdit_16.setMaximumSize(QtCore.QSize(300, 30))
         self.textEdit_16.setStyleSheet("background-color: #F8F9FD;\n"
@@ -195,7 +195,7 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
         spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_15.addItem(spacerItem15)
-        self.textEdit_18 = QtWidgets.QTextEdit(self.verticalLayoutWidget_4)
+        self.textEdit_18 = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
         self.textEdit_18.setMinimumSize(QtCore.QSize(300, 40))
         self.textEdit_18.setMaximumSize(QtCore.QSize(300, 30))
         self.textEdit_18.setStyleSheet("background-color: #F8F9FD;\n"
@@ -222,7 +222,7 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
         spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_16.addItem(spacerItem18)
-        self.textEdit_15 = QtWidgets.QTextEdit(self.verticalLayoutWidget_4)
+        self.textEdit_15 = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
         self.textEdit_15.setMinimumSize(QtCore.QSize(300, 40))
         self.textEdit_15.setMaximumSize(QtCore.QSize(300, 30))
         self.textEdit_15.setStyleSheet("background-color: #F8F9FD;\n"
@@ -230,6 +230,7 @@ class RegisterPage(QtWidgets.QMainWindow):
 "border-radius: 30px;\n"
 "font: 20px;")
         self.textEdit_15.setObjectName("textEdit_15")
+        self.textEdit_15.setEchoMode(QtWidgets.QLineEdit.Password)
         self.horizontalLayout_16.addWidget(self.textEdit_15)
         spacerItem19 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_16.addItem(spacerItem19)
@@ -311,30 +312,30 @@ class RegisterPage(QtWidgets.QMainWindow):
         self.label_13.setText(_translate("MainWindow", "Hospita"))
         self.label_14.setText(_translate("MainWindow", "Lite"))
         self.label_19.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Create Account</span></p></body></html>"))
-        self.label_20.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Nama Lengkap</p></body></html>"))
-        self.textEdit_13.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_20.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Full Name</p></body></html>"))
+#         self.textEdit_13.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
+# "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.label_21.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Email</p></body></html>"))
-        self.textEdit_16.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+#         self.textEdit_16.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
+# "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.label_22.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Username</p></body></html>"))
-        self.textEdit_18.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+#         self.textEdit_18.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
+# "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.label_23.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Password</p></body></html>"))
-        self.textEdit_15.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+#         self.textEdit_15.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
+# "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.pushButton_4.setText(_translate("MainWindow", "Register Account"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Already have an account?</p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Login Here!"))

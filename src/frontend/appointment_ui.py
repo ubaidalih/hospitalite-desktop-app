@@ -32,7 +32,7 @@ class AppoinmentPage(QtWidgets.QMainWindow):
         self.MainWindow.show()
 
     def nextPageFunction(self):
-        if self.Page + 9 < self.MaxPage:
+        if self.Page + 8 <= self.MaxPage:
             self.Page += 9
         self.findDoctor()
 
@@ -49,6 +49,7 @@ class AppoinmentPage(QtWidgets.QMainWindow):
         remains = 9 - len(self.data) % 9
         for _ in range(remains):
             self.data.append('')
+        self.MaxPage = len(self.data)
         self.findDoctor()
 
     def checkString(self, string):
@@ -61,68 +62,69 @@ class AppoinmentPage(QtWidgets.QMainWindow):
         _translate = QtCore.QCoreApplication.translate
         data = self.data
 
-        if (self.checkString(data[self.Page])):
-            self.doctorName1.setText("Dr. " + data[self.Page])
-            self.card1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName1.setText("")
-            self.card1.setText("")
-        
-        if (self.checkString(data[self.Page + 1])):
-            self.doctorName2.setText("Dr. " + data[self.Page + 1])
-            self.card2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName2.setText("")
-            self.card2.setText("")
+        if self.Page < self.MaxPage:
+            if (self.checkString(data[self.Page])):
+                self.doctorName1.setText("Dr. " + data[self.Page])
+                self.card1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName1.setText("")
+                self.card1.setText("")
+            
+            if (self.checkString(data[self.Page + 1])):
+                self.doctorName2.setText("Dr. " + data[self.Page + 1])
+                self.card2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName2.setText("")
+                self.card2.setText("")
 
-        if (self.checkString(data[self.Page + 2])):
-            self.doctorName3.setText("Dr. " + data[self.Page + 2])
-            self.card3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName3.setText("")
-            self.card3.setText("")
+            if (self.checkString(data[self.Page + 2])):
+                self.doctorName3.setText("Dr. " + data[self.Page + 2])
+                self.card3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName3.setText("")
+                self.card3.setText("")
 
-        if (self.checkString(data[self.Page + 3])):
-            self.doctorName4.setText("Dr. " + data[self.Page + 3])
-            self.card4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName4.setText("")
-            self.card4.setText("")
+            if (self.checkString(data[self.Page + 3])):
+                self.doctorName4.setText("Dr. " + data[self.Page + 3])
+                self.card4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName4.setText("")
+                self.card4.setText("")
 
-        if (self.checkString(data[self.Page + 4])):
-            self.doctorName5.setText("Dr. " + data[self.Page + 4])
-            self.card5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName5.setText("")
-            self.card5.setText("")
+            if (self.checkString(data[self.Page + 4])):
+                self.doctorName5.setText("Dr. " + data[self.Page + 4])
+                self.card5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName5.setText("")
+                self.card5.setText("")
 
-        if (self.checkString(data[self.Page + 5])):
-            self.doctorName6.setText("Dr. " + data[self.Page + 5])
-            self.card6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName6.setText("")
-            self.card6.setText("")
+            if (self.checkString(data[self.Page + 5])):
+                self.doctorName6.setText("Dr. " + data[self.Page + 5])
+                self.card6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName6.setText("")
+                self.card6.setText("")
 
-        if (self.checkString(data[self.Page + 6])):
-            self.doctorName7.setText("Dr. " + data[self.Page + 6])
-            self.card7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName7.setText("")
-            self.card7.setText("")
+            if (self.checkString(data[self.Page + 6])):
+                self.doctorName7.setText("Dr. " + data[self.Page + 6])
+                self.card7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName7.setText("")
+                self.card7.setText("")
 
-        if (self.checkString(data[self.Page + 7])):
-            self.doctorName8.setText("Dr. " + data[self.Page + 7])
-            self.card8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName8.setText("")
-            self.card8.setText("")
+            if (self.checkString(data[self.Page + 7])):
+                self.doctorName8.setText("Dr. " + data[self.Page + 7])
+                self.card8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName8.setText("")
+                self.card8.setText("")
 
-        if (self.checkString(data[self.Page + 8])):
-            self.doctorName9.setText("Dr. " + data[self.Page + 8])
-            self.card9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
-        else:
-            self.doctorName9.setText("")
-            self.card9.setText("")
+            if (self.checkString(data[self.Page + 8])):
+                self.doctorName9.setText("Dr. " + data[self.Page + 8])
+                self.card9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Make An Appointment</span></p></body></html>"))
+            else:
+                self.doctorName9.setText("")
+                self.card9.setText("")
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
