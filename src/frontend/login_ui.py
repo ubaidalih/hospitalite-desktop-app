@@ -42,8 +42,8 @@ class LoginPage(QtWidgets.QMainWindow):
         self.MainWindow.show()
 
     def login(self):
-        username = self.textEdit.toPlainText()
-        password = self.textEdit_2.toPlainText()
+        username = self.textEdit.text()
+        password = self.textEdit_2.text()
         self.changeState(lg([username,password], self.isDoctor))
 
     def changeState(self, state):
@@ -127,7 +127,7 @@ class LoginPage(QtWidgets.QMainWindow):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem4)
-        self.textEdit = QtWidgets.QTextEdit(self.verticalLayoutWidget_2)
+        self.textEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget_2)
         self.textEdit.setMinimumSize(QtCore.QSize(300, 50))
         self.textEdit.setMaximumSize(QtCore.QSize(400, 30))
         font = QtGui.QFont()
@@ -152,7 +152,7 @@ class LoginPage(QtWidgets.QMainWindow):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem6)
-        self.textEdit_2 = QtWidgets.QTextEdit(self.verticalLayoutWidget_2)
+        self.textEdit_2 = QtWidgets.QLineEdit(self.verticalLayoutWidget_2)
         self.textEdit_2.setMinimumSize(QtCore.QSize(300, 50))
         self.textEdit_2.setMaximumSize(QtCore.QSize(300, 30))
         self.textEdit_2.setStyleSheet("background-color: #F8F9FD;\n"
@@ -161,6 +161,7 @@ class LoginPage(QtWidgets.QMainWindow):
 "font: 20px;")
         self.textEdit_2.setObjectName("textEdit_2")
         self.textEdit_2.setPlaceholderText("Enter Password")
+        self.textEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.horizontalLayout_5.addWidget(self.textEdit_2)
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem7)
@@ -268,16 +269,6 @@ class LoginPage(QtWidgets.QMainWindow):
         self.label.setText(_translate("MainWindow", "Hospita"))
         self.label_3.setText(_translate("MainWindow", "Lite"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:23pt;\">Sign In</span></p></body></html>"))
-        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Lucida Grande\'; font-size:11pt;\"></span></p></body></html>"))
-        self.textEdit_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Lucida Grande\'; font-size:20px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\"></span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Sign in"))
         self.label_4.setText(_translate("MainWindow", "Don\'t have an account?"))
         self.pushButton_2.setText(_translate("MainWindow", "Register Here!"))
