@@ -48,9 +48,9 @@ def test_type_only():
 def test_date_only():
     infoKamar = ["", "2022-03-15", "2022-03-20"]
     listKamar = viewKamar(infoKamar)
-    assert len(listKamar) == 45
+    assert len(listKamar) == 48
 
 def test_type_and_date():
     infoKamar = [1, "2022-03-15", "2022-03-20"]
     listKamar = viewKamar(infoKamar)
-    assert len(listKamar) == 12
+    assert len(listKamar) == 14
