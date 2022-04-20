@@ -33,7 +33,7 @@ class RoomPage(QtWidgets.QMainWindow):
         self.MainWindow.show()
 
     def nextPageFunction(self):
-        if self.Page + 9 < self.MaxPage:
+        if self.Page + 9 <= self.MaxPage:
             self.Page += 9
         self.findRoom()
 
@@ -57,110 +57,112 @@ class RoomPage(QtWidgets.QMainWindow):
         remains = 9 - len(self.data) % 9
         for _ in range(remains):
             self.data.append(('','',''))
+        self.MaxPage = len(self.data)
         self.findRoom()
 
     def findRoom(self):
         _translate = QtCore.QCoreApplication.translate
         data = self.data
 
-        if (self.checkString(data[self.Page][0])):
-            self.roomId1.setText(data[self.Page][0])
-            self.roomPrice1.setText("IDR " + str(data[self.Page][2]))
-            self.roomType1.setText("Room Type " + str(data[self.Page][1]))
-            self.card1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId1.setText("")
-            self.roomPrice1.setText("")
-            self.roomType1.setText("")
-            self.card1.setText("")
-        
-        if (self.checkString(data[self.Page + 1][0])):
-            self.roomId2.setText(data[self.Page + 1][0])
-            self.roomPrice2.setText("IDR " + str(data[self.Page + 1][2]))
-            self.roomType2.setText("Room Type " + str(data[self.Page + 1][1]))
-            self.card2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId2.setText("")
-            self.roomPrice2.setText("")
-            self.roomType2.setText("")
-            self.card2.setText("")
+        if self.Page < self.MaxPage:
+            if (self.checkString(data[self.Page][0])):
+                self.roomId1.setText(data[self.Page][0])
+                self.roomPrice1.setText("IDR " + str(data[self.Page][2]))
+                self.roomType1.setText("Room Type " + str(data[self.Page][1]))
+                self.card1.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId1.setText("")
+                self.roomPrice1.setText("")
+                self.roomType1.setText("")
+                self.card1.setText("")
+            
+            if (self.checkString(data[self.Page + 1][0])):
+                self.roomId2.setText(data[self.Page + 1][0])
+                self.roomPrice2.setText("IDR " + str(data[self.Page + 1][2]))
+                self.roomType2.setText("Room Type " + str(data[self.Page + 1][1]))
+                self.card2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId2.setText("")
+                self.roomPrice2.setText("")
+                self.roomType2.setText("")
+                self.card2.setText("")
 
-        if (self.checkString(data[self.Page + 2][0])):
-            self.roomId3.setText(data[self.Page + 2][0])
-            self.roomPrice3.setText("IDR "+ str(data[self.Page + 2][2]))
-            self.roomType3.setText("Room Type " + str(data[self.Page + 2][1]))
-            self.card3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId3.setText("")
-            self.roomPrice3.setText("")
-            self.roomType3.setText("")
-            self.card3.setText("")
+            if (self.checkString(data[self.Page + 2][0])):
+                self.roomId3.setText(data[self.Page + 2][0])
+                self.roomPrice3.setText("IDR "+ str(data[self.Page + 2][2]))
+                self.roomType3.setText("Room Type " + str(data[self.Page + 2][1]))
+                self.card3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId3.setText("")
+                self.roomPrice3.setText("")
+                self.roomType3.setText("")
+                self.card3.setText("")
 
-        if (self.checkString(data[self.Page + 3][0])):
-            self.roomId4.setText(data[self.Page + 3][0])
-            self.roomPrice4.setText("IDR "+ str(data[self.Page + 3][2]))
-            self.roomType4.setText("Room Type " + str(data[self.Page + 3][1]))
-            self.card4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId4.setText("")
-            self.roomPrice4.setText("")
-            self.roomType4.setText("")
-            self.card4.setText("")
+            if (self.checkString(data[self.Page + 3][0])):
+                self.roomId4.setText(data[self.Page + 3][0])
+                self.roomPrice4.setText("IDR "+ str(data[self.Page + 3][2]))
+                self.roomType4.setText("Room Type " + str(data[self.Page + 3][1]))
+                self.card4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId4.setText("")
+                self.roomPrice4.setText("")
+                self.roomType4.setText("")
+                self.card4.setText("")
 
-        if (self.checkString(data[self.Page + 4][0])):
-            self.roomId5.setText(data[self.Page + 4][0])
-            self.roomPrice5.setText("IDR " + str(data[self.Page + 4][2]))
-            self.roomType5.setText("Room Type " + str(data[self.Page + 4][1]))
-            self.card5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId5.setText("")
-            self.roomPrice5.setText("")
-            self.roomType5.setText("")
-            self.card5.setText("")
+            if (self.checkString(data[self.Page + 4][0])):
+                self.roomId5.setText(data[self.Page + 4][0])
+                self.roomPrice5.setText("IDR " + str(data[self.Page + 4][2]))
+                self.roomType5.setText("Room Type " + str(data[self.Page + 4][1]))
+                self.card5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId5.setText("")
+                self.roomPrice5.setText("")
+                self.roomType5.setText("")
+                self.card5.setText("")
 
-        if (self.checkString(data[self.Page + 5][0])):
-            self.roomId6.setText(data[self.Page + 5][0])
-            self.roomPrice6.setText("IDR "+str(data[self.Page + 5][2]))
-            self.roomType6.setText("Room Type " + str(data[self.Page + 5][1]))
-            self.card6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId6.setText("")
-            self.roomPrice6.setText("")
-            self.roomType6.setText("")
-            self.card6.setText("")
+            if (self.checkString(data[self.Page + 5][0])):
+                self.roomId6.setText(data[self.Page + 5][0])
+                self.roomPrice6.setText("IDR "+str(data[self.Page + 5][2]))
+                self.roomType6.setText("Room Type " + str(data[self.Page + 5][1]))
+                self.card6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId6.setText("")
+                self.roomPrice6.setText("")
+                self.roomType6.setText("")
+                self.card6.setText("")
 
-        if (self.checkString(data[self.Page + 6][0])):
-            self.roomId7.setText(data[self.Page + 6][0])
-            self.roomPrice7.setText("IDR "+str(data[self.Page + 6][2]))
-            self.roomType7.setText("Room Type " + str(data[self.Page + 6][1]))
-            self.card7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId7.setText("")
-            self.roomPrice7.setText("")
-            self.roomType7.setText("")
-            self.card7.setText("")
+            if (self.checkString(data[self.Page + 6][0])):
+                self.roomId7.setText(data[self.Page + 6][0])
+                self.roomPrice7.setText("IDR "+str(data[self.Page + 6][2]))
+                self.roomType7.setText("Room Type " + str(data[self.Page + 6][1]))
+                self.card7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId7.setText("")
+                self.roomPrice7.setText("")
+                self.roomType7.setText("")
+                self.card7.setText("")
 
-        if (self.checkString(data[self.Page + 7][0])):
-            self.roomId8.setText(data[self.Page + 7][0])
-            self.roomPrice8.setText("IDR "+str(data[self.Page + 7][2]))
-            self.roomType8.setText("Room Type " + str(data[self.Page + 7][1]))
-            self.card8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId8.setText("")
-            self.roomPrice8.setText("")
-            self.roomType8.setText("")
-            self.card8.setText("")
+            if (self.checkString(data[self.Page + 7][0])):
+                self.roomId8.setText(data[self.Page + 7][0])
+                self.roomPrice8.setText("IDR "+str(data[self.Page + 7][2]))
+                self.roomType8.setText("Room Type " + str(data[self.Page + 7][1]))
+                self.card8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId8.setText("")
+                self.roomPrice8.setText("")
+                self.roomType8.setText("")
+                self.card8.setText("")
 
-        if (self.checkString(data[self.Page + 8][0])):
-            self.roomId9.setText(data[self.Page + 8][0])
-            self.roomPrice9.setText("IDR "+str(data[self.Page + 8][2]))
-            self.roomType9.setText("Room Type " + str(data[self.Page + 8][1]))
-            self.card9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
-        else:
-            self.roomId9.setText("")
-            self.roomPrice9.setText("")
-            self.roomType9.setText("")
-            self.card9.setText("")
+            if (self.checkString(data[self.Page + 8][0])):
+                self.roomId9.setText(data[self.Page + 8][0])
+                self.roomPrice9.setText("IDR "+str(data[self.Page + 8][2]))
+                self.roomType9.setText("Room Type " + str(data[self.Page + 8][1]))
+                self.card9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Book Now</span></p></body></html>"))
+            else:
+                self.roomId9.setText("")
+                self.roomPrice9.setText("")
+                self.roomType9.setText("")
+                self.card9.setText("")
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
